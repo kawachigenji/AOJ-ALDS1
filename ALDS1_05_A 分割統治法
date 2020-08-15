@@ -1,0 +1,29 @@
+#include <bits/stdc++.h>
+#define PI 3.14159265359
+#define NIL (-1)
+using namespace std;
+const int64_t MOD = 1e9 + 7;
+
+int findMaximum(vector<int> v, int left, int right) {
+	int mid = (left + right) / 2;
+	if (left + 1 == right) return v.at(left);
+	else {
+		int a, b, x;
+		a = findMaximum(v, left, mid);
+		b = findMaximum(v, mid, right);
+		x = max(a, b);
+		return x;
+	}
+}
+
+int main() {
+	int N;
+	cin >> N;
+
+	vector<int> v(N);
+	for (int i = 0; i < N; i++) cin >> v.at(i);
+
+	int n = findMaximum(v, 0, N);
+
+	cout << n << endl;
+}
