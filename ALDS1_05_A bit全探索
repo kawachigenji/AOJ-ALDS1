@@ -1,0 +1,31 @@
+#include <bits/stdc++.h>
+#define PI 3.14159265359
+#define NIL (-1)
+using namespace std;
+const int64_t MOD = 1e9 + 7;
+
+int main() {
+	int n;
+	cin >> n;
+	vector<int> v(n);
+	for (int i = 0; i < n; i++) cin >> v.at(i);
+
+	vector<int> S;
+	for (int bit = 0; bit < (1 << n); bit++) {
+		int sum = 0;
+		for (int i = 0; i < n; i++) {
+			if (bit & (1 << i)) sum += v.at(i);
+		}
+		S.push_back(sum);
+	}
+
+	int q;
+	cin >> q;
+
+	for (int i = 0; i < q; i++) {
+		int num;
+		cin >> num;
+
+		cout << (count(S.begin(), S.end(), num) ? "yes" : "no") << endl;
+	}
+}
