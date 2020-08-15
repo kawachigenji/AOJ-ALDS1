@@ -1,1 +1,32 @@
+#include <bits/stdc++.h>
+#define PI 3.14159265359
+#define NIL -1
+using namespace std;
+const int64_t MOD = 1e9 + 7;
 
+int linearSearch(vector<int> v, int key) {
+	for (int i = 0; i < v.size(); i++) {
+		if (v.at(i) == key) return 1;
+	}
+
+	return 0;
+}
+
+int main() {
+	int n;
+	cin >> n;
+	vector<int> S(n);
+	for (int i = 0; i < n; i++) cin >> S.at(i);
+
+	int q;
+	cin >> q;
+	vector<int> T(q);
+	for (int i = 0; i < q; i++) cin >> T.at(i);
+
+	int sum = 0;
+	for (int i = 0; i < q; i++) {
+		if (linearSearch(S, T.at(i))) sum++;
+	}
+
+	cout << sum << endl;
+}
