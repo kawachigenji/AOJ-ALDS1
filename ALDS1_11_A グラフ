@@ -1,0 +1,30 @@
+#include <bits/stdc++.h>
+#define PI 3.14159265359
+#define NIL (-1)
+using namespace std;
+const int64_t MOD = 1e9 + 7;
+
+int main() {
+	int n;
+	cin >> n;
+
+	vector<vector<bool>> M(n, vector<bool>(n));
+	for (int i = 0; i < n; i++) {
+		int v, k;
+		cin >> v >> k;
+
+		for (int j = 0; j < k; j++) {
+			int x;
+			cin >> x;
+			M.at(v - 1).at(x - 1) = true;
+		}
+	}
+
+	for (int i = 0; i < n; i++) {
+		for (int j = 0; j < n; j++) {
+			if (j) cout << ' ';
+			cout << M.at(i).at(j);
+		}
+		cout << endl;
+	}
+}
